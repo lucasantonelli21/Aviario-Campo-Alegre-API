@@ -1,0 +1,9 @@
+/bin
+/obj
+/Properties
+appsettings.Development.json
+appsettings.json
+*.sln
+*.csproj
+*.http
+.fake
