@@ -108,8 +108,7 @@ Gastos:
 
 ```cs
  public int Id { get; set; }
- public
-int IdLote { get; set; }
+ public int IdLote { get; set; }
  public DateOnly Data { get; set; }
  public string Descricao { get; set; }
  public decimal Valor { get; set; }
