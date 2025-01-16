@@ -72,10 +72,13 @@ namespace Aviario_Campo_Alegre.Service
 
         public LoteModel AdicionarVenda(LoteModel lote, VendaDTO vendaDTO){
             var listaVendas = vendaService.GetVendas(lote.Id);
+            if(listaVendas == null)
+                lote.QuantidadeVendas = new List<VendaAnimal>();
             long limiteVenda = 0;
             foreach(var venda in listaVendas){
                 limiteVenda = limiteVenda + venda.Quantidade;
             }
+            if(limiteVenda == 0 && lote.Vendido == false){lote.Vendido = true;_context.Lotes.Update(lote); _context.SaveChanges(); return null;}
             if(limiteVenda + vendaDTO.Quantidade > lote.QuantidadeAnimais){return null;}
             if(limiteVenda + vendaDTO.Quantidade == lote.QuantidadeAnimais){lote.Vendido = true;}
             var novaVenda = vendaService.TransformarDTO(vendaDTO);

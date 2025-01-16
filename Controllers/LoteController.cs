@@ -39,19 +39,19 @@ namespace Aviario_Campo_Alegre.Controllers
         }
 
 
-        [HttpPut("AdicionarMortalidade{idLote},{qntdMortos}")]
-        public IActionResult AdicionarMortalidade(int idLote,int qntdMortos){
-            var lote = loteService.GetLote(idLote);
+        [HttpPut("AdicionarMortalidade")]
+        public IActionResult AdicionarMortalidade(MortalidadeDTO mortalidadeDTO){
+            var lote = loteService.GetLote(mortalidadeDTO.idLote);
             if(lote == null){return NotFound();}
-            lote = loteService.AdicionarMortalidade(lote,qntdMortos);
+            lote = loteService.AdicionarMortalidade(lote,mortalidadeDTO.qntdMortos);
             return Ok(lote);
         }
         
-        [HttpPut("AdicionarConsumo{idLote},{qntdConsumo}")]
-        public IActionResult AdicionarConsumo(int idLote,int qntdConsumo){
-            var lote = loteService.GetLote(idLote);
+        [HttpPut("AdicionarConsumo")]
+        public IActionResult AdicionarConsumo(ConsumoDTO consumoDTO){
+            var lote = loteService.GetLote(consumoDTO.idLote);
             if(lote == null){return NotFound();}
-            lote = loteService.AdicionarConsumo(lote,qntdConsumo);
+            lote = loteService.AdicionarConsumo(lote,consumoDTO.qntdConsumo);
             return Ok(lote);
         }
 
