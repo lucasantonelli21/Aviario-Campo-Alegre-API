@@ -10,6 +10,7 @@ namespace Aviario_Campo_Alegre.Interface
     public interface IAdmService
     {
         public string Logar(LoginDTO loginDTO);
+        public void CadastrarAdm(AdministradorModel administradorModel);
         
     }
 }

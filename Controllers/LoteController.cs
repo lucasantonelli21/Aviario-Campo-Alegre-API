@@ -38,14 +38,6 @@ namespace Aviario_Campo_Alegre.Controllers
             return Ok(listaLote);
         }
 
-        [HttpPut("Vender{idLote},{valorVenda}")]
-        public IActionResult Vender(int idLote, decimal valorVenda){
-            var lote = loteService.GetLote(idLote);
-            if(lote == null){return NotFound();}
-            if(lote.Vendido){return BadRequest();}
-            lote = loteService.VenderLote(lote,valorVenda);
-            return Ok(lote);
-        }
 
         [HttpPut("AdicionarMortalidade{idLote},{qntdMortos}")]
         public IActionResult AdicionarMortalidade(int idLote,int qntdMortos){

@@ -14,7 +14,6 @@ namespace Aviario_Campo_Alegre.Interface
         public void CadastrarLote(LoteModel lote);
         public List<LoteModel> ListarLotes();
         public LoteModel  GetLote(int idLote);
-        public LoteModel VenderLote(LoteModel lote, decimal valorVenda);
         public LoteModel AdicionarMortalidade(LoteModel lote, int qntdMortos);
         public LoteModel AdicionarConsumo(LoteModel lote, int qntdCosumo);
         public LoteModel AdicionarVenda(LoteModel lote, VendaDTO novaVenda);

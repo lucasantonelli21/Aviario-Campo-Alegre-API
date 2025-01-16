@@ -26,5 +26,11 @@ namespace Aviario_Campo_Alegre.Service
             string token = tokenService.GenerateToken(login);
             return token;
         }
+
+        public void CadastrarAdm(AdministradorModel administradorModel){
+            _context.Administradores.Add(administradorModel);
+            _context.SaveChanges();
+
+        }
     }
 }

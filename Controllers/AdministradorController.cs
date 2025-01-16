@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Aviario_Campo_Alegre.Context;
 using Aviario_Campo_Alegre.DTOs;
 using Aviario_Campo_Alegre.Interface;
+using Aviario_Campo_Alegre.Models;
 using Aviario_Campo_Alegre.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace Aviario_Campo_Alegre.Controllers
             administradorService = new AdmService(context,new TokenService(configuration));
         }
 
-        [HttpPost]
+        [HttpPost("/Administrador")]
         //TODO: Geração de token JWT e HashCode da senha / criptografia
         public IActionResult Login(LoginDTO loginDTO)
         {
@@ -31,6 +32,13 @@ namespace Aviario_Campo_Alegre.Controllers
                 return Ok(login);
               }  
             return Unauthorized();	
+        }
+
+        [HttpPost("/Cadastrar")]
+         public IActionResult Login(AdministradorModel administradorModel)
+        {
+            administradorService.CadastrarAdm(administradorModel);
+            return Ok(administradorModel);
         }
     }
 }

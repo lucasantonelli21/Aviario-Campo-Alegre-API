@@ -52,20 +52,7 @@ namespace Aviario_Campo_Alegre.Service
         public LoteModel GetLote(int idLote){
             return _context.Lotes.Find(idLote);
         }
-        public LoteModel VenderLote(LoteModel lote, decimal valorVenda){
-            lote.Vendido = true;
-            lote.DataVenda = DateOnly.FromDateTime(DateTime.Now);
-            var novaVenda = new VendaAnimal{ Quantidade = lote.QuantidadeAnimais,
-            PrecoVenda = valorVenda,
-            DataVenda = DateOnly.FromDateTime(DateTime.Now),
-            NumeroLote = lote.Id
-            };
-            lote.QuantidadeVendas.Add(novaVenda);
-            vendaService.Cadastrar(novaVenda);
-            _context.Lotes.Update(lote);
-            _context.SaveChanges();
-            return lote;
-        }
+        
 
         public LoteModel AdicionarMortalidade(LoteModel lote, int qntdMortos)
         {
